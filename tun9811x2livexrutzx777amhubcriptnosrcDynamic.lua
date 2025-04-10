@@ -664,7 +664,7 @@ spawn(function()
                 for i,v in pairs(workspace.Mobs:GetChildren()) do
                     if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then
                         if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 30 then
-                            v.Humanoid.Health = v.Humanoid.Health - math.random(5000, 10000)
+                        v.Humanoid.Health  = 0
                         end
                     end
                 end
