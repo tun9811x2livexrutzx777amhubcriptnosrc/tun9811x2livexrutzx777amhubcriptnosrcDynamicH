@@ -667,6 +667,8 @@ spawn(function()
                         if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 30 then
                             repeat
                                 wait(0.01)
+                                v.Humanoid.WalkSpeed = 0
+                                v.HumanoidRootPart.Size = Vector3.new(20,20,20)
                                 v.Humanoid.Health  = 0
                             until not getgenv().Config["Enabled Instant Kill"] or not v.Parent
                         end
